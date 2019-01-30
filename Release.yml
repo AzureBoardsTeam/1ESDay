@@ -1,0 +1,21 @@
+# Perform a release in response to tag creation
+
+trigger:
+  tags:
+    include:
+    - releases/*
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- task: GitHubRelease@0
+  inputs:
+    gitHubConnection: 1ESDayReleases
+    repositoryName: AzureBoardsTeam/1ESDay
+    assets: '$(build.sourcesDirectory)/*'
