@@ -12,11 +12,14 @@ steps:
 - script: |
     npm install
     npm run build
+    set
   displayName: 'npm install and build'
 
 - task: GitHubRelease@0
   inputs:
     action: edit
+    tag: $(tagName)
     gitHubConnection: 1ESDayReleases
     repositoryName: AzureBoardsTeam/1ESDay
     assets: '$(build.sourcesDirectory)/*'
+    enabled: false
