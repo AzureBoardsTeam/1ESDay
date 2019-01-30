@@ -15,11 +15,15 @@ steps:
     set
   displayName: 'npm install and build'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    includeRootFolder: false
+
 - task: GitHubRelease@0
   inputs:
     action: edit
-    tag: $(tagName)
+    tag: 'releases/$(build.sourceBranchName)'
     gitHubConnection: 1ESDayReleases
     repositoryName: AzureBoardsTeam/1ESDay
     assets: '$(build.sourcesDirectory)/*'
-    enabled: false
