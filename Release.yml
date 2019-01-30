@@ -1,6 +1,9 @@
-# Perform a release in response to tag creation
-
+# Update GitHub Releases with built artifacts
+pr: none
 trigger:
+  branches:
+    exclude:
+    - master
   tags:
     include:
     - releases/*
