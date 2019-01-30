@@ -26,4 +26,3 @@ steps:
     tag: 'releases/$(build.sourceBranchName)'
     gitHubConnection: 1ESDayReleases
     repositoryName: AzureBoardsTeam/1ESDay
-    assets: '$(build.sourcesDirectory)/*'
