@@ -19,11 +19,11 @@ steps:
   inputs:
     includeRootFolder: false
     rootFolderOrFile: '$(build.sourcesDirectory)'
-    archiveFile: '$(build.artifactStagingDirectory)/$(build.sourceBranchName).zip
+    archiveFile: '$(build.artifactStagingDirectory)/$(build.sourceBranchName).zip'
 
 - task: GitHubRelease@0
   inputs:
     action: edit
-    tag: 'releases/$(build.sourceBranchName)'
     gitHubConnection: 1ESDayReleases
     repositoryName: AzureBoardsTeam/1ESDay
+    tag: 'releases/$(build.sourceBranchName)'
