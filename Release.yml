@@ -17,8 +17,9 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    archiveFile: '$(build.artifactStagingDirectory)/$(build.sourceBranchName).zip
 
 - task: GitHubRelease@0
   inputs:
