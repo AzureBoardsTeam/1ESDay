@@ -16,6 +16,7 @@ steps:
 
 - task: GitHubRelease@0
   inputs:
+    action: edit
     gitHubConnection: 1ESDayReleases
     repositoryName: AzureBoardsTeam/1ESDay
     assets: '$(build.sourcesDirectory)/*'
